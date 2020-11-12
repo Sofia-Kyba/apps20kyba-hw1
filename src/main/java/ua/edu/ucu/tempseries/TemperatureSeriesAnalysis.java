@@ -12,7 +12,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public TemperatureSeriesAnalysis(double[] temperatureSeries) {
-        if (checkTemperature(temperatureSeries)){
+        if (checkTemperature(temperatureSeries)) {
             this.temperatures = temperatureSeries;
         }
         else {
@@ -21,16 +21,16 @@ public class TemperatureSeriesAnalysis {
         this.tempLength = temperatures.length;
     }
 
-    public boolean checkTemperature(double []temps){
-        for (int i=0; i<temps.length; i++){
-            if (temps[i] < -273){
+    public boolean checkTemperature(double []temps) {
+        for (int i = 0; i < temps.length; i++) {
+            if (temps[i] < -273) {
                 return false;
             }
         }
         return true;
     }
 
-    public double average(){
+    public double average() {
         if (temperatures.length != 0) {
             double sum = 0.0;
 
@@ -54,7 +54,7 @@ public class TemperatureSeriesAnalysis {
             double mean = sum / temperatures.length;
 
             for (double num : temperatures) {
-                deviation += Math.pow(num - mean, 2);
+                deviation += (num - mean)*(num - mean);
             }
             return Math.sqrt(deviation / temperatures.length);
         }
@@ -62,10 +62,10 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double min() {
-        if (temperatures.length != 0){
+        if (temperatures.length != 0) {
             double min = Double.POSITIVE_INFINITY;
-            for(double num: temperatures){
-                if (num < min){
+            for(double num: temperatures) {
+                if (num < min) {
                     min = num;
                 }
             }
@@ -75,9 +75,9 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double max() {
-        if (temperatures.length != 0){
+        if (temperatures.length != 0) {
             double max = Double.NEGATIVE_INFINITY;
-            for(double num: temperatures){
+            for(double num: temperatures) {
                 if (num > max){
                     max = num;
                 }
@@ -123,16 +123,16 @@ public class TemperatureSeriesAnalysis {
     public double[] findTempsLessThen(double tempValue) {
         int counter = 0;
         for (double num : temperatures) {
-            if (num < tempValue){
+            if (num < tempValue) {
                 counter += 1;
             }
         }
-        int counter2 = 0;
+        int counterTwo = 0;
         double[] lessValues = new double[counter];
         for (double num : temperatures) {
-            if (num < tempValue){
-                lessValues[counter2] = num;
-                counter2 += 1;
+            if (num < tempValue) {
+                lessValues[counterTwo] = num;
+                counterTwo += 1;
             }
         }
         return lessValues;
@@ -141,16 +141,16 @@ public class TemperatureSeriesAnalysis {
     public double[] findTempsGreaterThen(double tempValue) {
         int counter = 0;
         for (double num : temperatures) {
-            if (num > tempValue){
+            if (num > tempValue) {
                 counter += 1;
             }
         }
-        int counter2 = 0;
+        int counterTwo = 0;
         double[] greaterValues = new double[counter];
         for (double num : temperatures) {
-            if (num > tempValue){
-                greaterValues[counter2] = num;
-                counter2 += 1;
+            if (num > tempValue) {
+                greaterValues[counterTwo] = num;
+                counterTwo += 1;
             }
         }
         return greaterValues;
@@ -168,19 +168,19 @@ public class TemperatureSeriesAnalysis {
 
     public int addTemps(double... temps) {
         int lengthNewArray = this.tempLength;
-        if (this.tempLength == 0){
+        if (this.tempLength == 0) {
             lengthNewArray = 1;
         }
-        while (lengthNewArray < this.tempLength + temps.length){
+        while (lengthNewArray < this.tempLength + temps.length) {
             lengthNewArray *= 2;
         }
         double[] newArray = new double[lengthNewArray];
         int counter = 0;
-        for (int i=0; i<tempLength; i++){
+        for (int i = 0; i < tempLength; i++) {
             newArray[counter] = temperatures[i];
             counter += 1;
         }
-        for (int j=0; j<temps.length; j++){
+        for (int j = 0; j < temps.length; j++) {
             newArray[counter] = temps[j];
             counter += 1;
         }
