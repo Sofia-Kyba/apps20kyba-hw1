@@ -168,6 +168,9 @@ public class TemperatureSeriesAnalysis {
 
     public int addTemps(double... temps) {
         int lengthNewArray = this.tempLength;
+        if (this.tempLength == 0){
+            lengthNewArray = 1;
+        }
         while (lengthNewArray < this.tempLength + temps.length){
             lengthNewArray *= 2;
         }
