@@ -64,7 +64,7 @@ public class TemperatureSeriesAnalysis {
     public double min() {
         if (temperatures.length != 0) {
             double min = Double.POSITIVE_INFINITY;
-            for(double num: temperatures) {
+            for (double num: temperatures) {
                 if (num < min) {
                     min = num;
                 }
@@ -77,7 +77,7 @@ public class TemperatureSeriesAnalysis {
     public double max() {
         if (temperatures.length != 0) {
             double max = Double.NEGATIVE_INFINITY;
-            for(double num: temperatures) {
+            for (double num: temperatures) {
                 if (num > max){
                     max = num;
                 }
@@ -107,11 +107,11 @@ public class TemperatureSeriesAnalysis {
         if (temperatures.length != 0) {
             double closestToValue = Double.POSITIVE_INFINITY;
             for (double num : temperatures) {
-                if (Math.abs(tempValue - num) <
-                        Math.abs(tempValue - closestToValue)) {
+                if (Math.abs(tempValue - num)
+                        < Math.abs(tempValue - closestToValue)) {
                     closestToValue = num;
-                } else if (Math.abs(tempValue - num) ==
-                        Math.abs(tempValue - closestToValue)) {
+                } else if (Math.abs(tempValue - num)
+                        == Math.abs(tempValue - closestToValue)) {
                     closestToValue = Math.abs(Math.abs(tempValue - num));
                 }
             }
