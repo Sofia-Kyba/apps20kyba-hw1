@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d165da41-f744-49e9-ab80-b3b8950db867" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/edu/ucu/tempseries/TemperatureSeriesAnalysis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/edu/ucu/tempseries/TemperatureSeriesAnalysis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ua/edu/ucu/tempseries/TemperatureSeriesAnalysisTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ua/edu/ucu/tempseries/TemperatureSeriesAnalysisTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +104,11 @@
       <workItem from="1605143925048" duration="9000" />
       <workItem from="1605143943003" duration="4000" />
       <workItem from="1605143950418" duration="860000" />
-      <workItem from="1605173958653" duration="1824000" />
+      <workItem from="1605173958653" duration="1958000" />
+      <workItem from="1605203372044" duration="5000" />
+      <workItem from="1605203551278" duration="7000" />
+      <workItem from="1605203703679" duration="13000" />
+      <workItem from="1605204383889" duration="8000" />
     </task>
     <servers />
   </component>

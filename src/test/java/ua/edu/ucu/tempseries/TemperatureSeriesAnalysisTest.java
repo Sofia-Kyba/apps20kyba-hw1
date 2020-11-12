@@ -310,18 +310,66 @@ public class TemperatureSeriesAnalysisTest {
         assertArrayEquals(expectedArray, actualArray, 0.00001);
     }
 
-//    @Test
-//    public void testTempSummaryStatisticsWithOneElementArray() {
-//        // setup input data and expected result
-//        double[] temperatureSeries = {2.0};
-//        TemperatureSeriesAnalysis seriesAnalysis =
-//                new TemperatureSeriesAnalysis(temperatureSeries);
-//        double [] expectedArray = {};
-//
-//        // call tested method
-//        double[] actualArray = seriesAnalysis.findTempsGreaterThen(1.0);
-//        assertArrayEquals(expectedArray, actualArray, 0.000001);
-//    }
+    @Test
+    public void testTempSummaryStatisticsWithOneElementArray() {
+        // setup input data and expected result
+        double[] temperatureSeries = {2.0};
+        TemperatureSeriesAnalysis seriesAnalysis =
+                new TemperatureSeriesAnalysis(temperatureSeries);
+        double expectedAverage = 2.0;
+        double expectedDev = 0.0;
+        double expectedMin = 2.0;
+        double expectedMax = 2.0;
+
+
+        // call tested method
+        TempSummaryStatistics statistics = seriesAnalysis.summaryStatistics();
+        double actualAverage = statistics.getAverage();
+        double actualDev = statistics.getDevTemp();
+        double actualMin = statistics.getMinTemp();
+        double actualMax = statistics.getMaxTemp();
+
+        assertEquals(expectedAverage, actualAverage, 0.000001);
+        assertEquals(expectedDev, actualDev, 0.000001);
+        assertEquals(expectedMin, actualMin, 0.000001);
+        assertEquals(expectedMax, actualMax, 0.000001);
+
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testTempSummaryStatisticsWithEmptyArray() {
+        double[] temperatureSeries = {};
+        TemperatureSeriesAnalysis seriesAnalysis =
+                new TemperatureSeriesAnalysis(temperatureSeries);
+
+        // expect exception here
+        seriesAnalysis.summaryStatistics();
+    }
+
+    @Test
+    public void testTempSummaryStatistics() {
+        double[] temperatureSeries = {3.0, -5.0, 1.0, 5.0, 8.5};
+        TemperatureSeriesAnalysis seriesAnalysis =
+                new TemperatureSeriesAnalysis(temperatureSeries);
+
+        double expectedAverage = 2.5;
+        double expectedDev = 4.494441010848846;
+        double expectedMin = -5.0;
+        double expectedMax = 8.5;
+
+
+        // call tested method
+        TempSummaryStatistics statistics = seriesAnalysis.summaryStatistics();
+        double actualAverage = statistics.getAverage();
+        double actualDev = statistics.getDevTemp();
+        double actualMin = statistics.getMinTemp();
+        double actualMax = statistics.getMaxTemp();
+
+        assertEquals(expectedAverage, actualAverage, 0.000001);
+        assertEquals(expectedDev, actualDev, 0.000001);
+        assertEquals(expectedMin, actualMin, 0.000001);
+        assertEquals(expectedMax, actualMax, 0.000001);
+    }
 
     @Test
     public void testAddTempsWithOneElementArray() {
@@ -344,10 +392,10 @@ public class TemperatureSeriesAnalysisTest {
         double[] temperatureSeries = {};
         TemperatureSeriesAnalysis seriesAnalysis =
                 new TemperatureSeriesAnalysis(temperatureSeries);
-        double expResult = 1;
+        int expResult = 1;
 
         // call tested method
-        double actualResult = seriesAnalysis.addTemps(0.1);
+        int actualResult = seriesAnalysis.addTemps(0.1);
 
         // compare expected result with actual result
         assertEquals(expResult, actualResult, 0.00001);
@@ -359,9 +407,9 @@ public class TemperatureSeriesAnalysisTest {
         double[] temperatureSeries = {3.0, -5.0, 1.0, 5.0};
         TemperatureSeriesAnalysis seriesAnalysis =
                 new TemperatureSeriesAnalysis(temperatureSeries);
-        double expResult = 6;
+        int expResult = 6;
 
-        double actualResult = seriesAnalysis.addTemps(6, 8.9);
+        int actualResult = seriesAnalysis.addTemps(6, 8.9);
 
         assertEquals(expResult, actualResult, 0.00001);
     }
